@@ -5,7 +5,6 @@ from fastapi import HTTPException
 from core.security import verify_signature
 from services.github_service import GitHubService
 from services.installation_service import InstallationService
-
 router = APIRouter()
 
 
@@ -42,6 +41,9 @@ async def github_webhook(request: Request):
                 "number": data["issue"]["number"],
                 "repository": data["repository"]["full_name"],
                 "author": data["issue"]["user"]["login"],
+                "owner": data["repository"]["owner"]["login"],
+                "repo_name": data["repository"]["name"],
+                "installation_id": data["installation"]["id"],
             }
 
             GitHubService.process_issue(issue)

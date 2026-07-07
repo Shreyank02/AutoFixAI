@@ -8,6 +8,8 @@ from app_rag.scanner import RepositoryScanner
 from app_rag.indexer import RepositoryIndexer
 from app_rag.retriever import RepositoryRetriever
 from agents.workflow import workflow
+from services.auth_service import get_installation_token
+
 
 class GitHubService:
 
@@ -26,6 +28,31 @@ class GitHubService:
         repository_path = RepositoryService.repository_path(
             repository_name
         )
+        if not RepositoryService.repository_exists(repository_name):
+
+            logger.info(
+                "Repository not found locally. Cloning..."
+            )
+
+        installation_id = issue_data["installation_id"]
+        owner = issue_data["owner"]
+        repo_name = issue_data["repo_name"]
+
+        logger.info("Repository not found locally. Cloning...")
+
+        token = get_installation_token(installation_id)
+
+        clone_url = (
+            f"https://x-access-token:{token}"
+            f"@github.com/{owner}/{repo_name}.git"
+        )
+
+        repository_path = RepositoryService.clone_repository(
+            clone_url=clone_url,
+            repo_name=repo_name,
+        )
+
+        logger.info("Repository cloned successfully.")
 
         logger.info(
             f"[1/4] Repository Located : {repository_path}"
@@ -58,7 +85,7 @@ class GitHubService:
         )
 
         print(results[0].payload)
-        
+
         retrieved_context = "\n\n".join(
                 [
                     f"""
