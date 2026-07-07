@@ -6,8 +6,8 @@ import requests
 from core.config import settings
 
 
-def load_private_key():
-    return Path(settings.GITHUB_PRIVATE_KEY).read_text()
+def load_private_key() -> str:
+    return settings.GITHUB_PRIVATE_KEY
 
 
 def generate_app_jwt():
