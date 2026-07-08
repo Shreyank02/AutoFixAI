@@ -92,17 +92,19 @@ class GitHubService:
         print(results[0].payload)
 
         retrieved_context = "\n\n".join(
-                [
-                    f"""
-            File: {r.payload["file_path"]}
-            Symbol: {r.payload["symbol"]}
-            Type: {r.payload["chunk_type"]}
-            Code:
-            {r.payload["content"]}
-            """
-                    for r in results
-                ]
-            )
+            [
+                f"""
+        File: {r.payload.get("file_path")}
+        Symbol: {r.payload.get("symbol")}
+        Type: {r.payload.get("symbol_type")}
+        Language: {r.payload.get("language")}
+
+        Code:
+        {r.payload.get("code")}
+        """
+                for r in results
+            ]
+        )
 
         logger.info(
             f"[4/4] Retrieved {len(results)} Code Chunks"
