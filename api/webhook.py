@@ -31,8 +31,15 @@ async def github_webhook(request: Request):
 
     data = await request.json()
 
+    print("=" * 60)
+    print("EVENT :", event)
+    print("ACTION:", data.get("action"))
+    print("=" * 60)
+
     if event == "issues":
 
+        print("ISSUE ACTION =", data["action"])
+        
         if data["action"] == "opened":
 
             issue = {
