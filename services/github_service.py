@@ -73,9 +73,9 @@ class GitHubService:
             "[2/4] Repository Scan Completed"
         )
 
-        indexer = RepositoryIndexer()
+        # indexer = RepositoryIndexer()
 
-        indexer.index_repository(context)
+        # indexer.index_repository(context)
 
         logger.info(
             "[3/4] Repository Indexed"
