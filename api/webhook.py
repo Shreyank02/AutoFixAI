@@ -45,7 +45,8 @@ async def github_webhook(request: Request):
                 "repo_name": data["repository"]["name"],
                 "installation_id": data["installation"]["id"],
             }
-
+            print("CALLING GitHubService.process_issue()")
+            print(issue)
             GitHubService.process_issue(issue)
 
     elif event == "installation":

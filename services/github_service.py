@@ -16,6 +16,11 @@ class GitHubService:
     @staticmethod
     def process_issue(issue_data: dict):
 
+        print("=" * 70)
+        print("ENTERED process_issue()")
+        print(issue_data)
+        print("=" * 70)
+
         logger.info("=" * 70)
         logger.info("AUTOFIX AI STARTED")
         logger.info("=" * 70)
