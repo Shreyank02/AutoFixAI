@@ -58,6 +58,7 @@ async def github_webhook(request: Request):
             print(issue)
 
             JobService.add_job(issue)
+            print("JOB QUEUED")
 
     elif event == "installation":
 

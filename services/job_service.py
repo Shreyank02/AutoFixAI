@@ -1,53 +1,84 @@
-import json
-from pathlib import Path
-from threading import Lock
+from supabase import create_client
 
-JOB_FILE = Path("jobs/jobs.json")
-JOB_FILE.parent.mkdir(exist_ok=True)
+from core.config import settings
 
-if not JOB_FILE.exists():
-    JOB_FILE.write_text("[]")
 
-_lock = Lock()
+supabase = create_client(
+    settings.SUPABASE_URL,
+    settings.SUPABASE_KEY,
+)
 
 
 class JobService:
 
     @staticmethod
-    def add_job(job):
+    def add_job(job: dict):
 
-        with _lock:
+        data = {
+            "status": "queued",
+            "title": job["title"],
+            "body": job["body"],
+            "issue_number": job["number"],
+            "repository": job["repository"],
+            "owner": job["owner"],
+            "repo_name": job["repo_name"],
+            "author": job["author"],
+            "installation_id": job["installation_id"],
+        }
 
-            jobs = json.loads(
-                JOB_FILE.read_text()
-            )
+        response = (
+            supabase
+            .table("jobs")
+            .insert(data)
+            .execute()
+        )
 
-            jobs.append(job)
-
-            JOB_FILE.write_text(
-                json.dumps(
-                    jobs,
-                    indent=4,
-                )
-            )
+        print("=" * 60)
+        print("JOB INSERTED INTO SUPABASE")
+        print(response.data)
+        print("=" * 60)
 
     @staticmethod
-    def get_jobs():
+    def get_pending_jobs():
 
-        with _lock:
+        response = (
+            supabase
+            .table("jobs")
+            .select("*")
+            .eq("status", "queued")
+            .order("id")
+            .execute()
+        )
 
-            return json.loads(
-                JOB_FILE.read_text()
-            )
+        return response.data
 
     @staticmethod
-    def save_jobs(jobs):
+    def update_status(
+        job_id: int,
+        status: str,
+    ):
 
-        with _lock:
-
-            JOB_FILE.write_text(
-                json.dumps(
-                    jobs,
-                    indent=4,
-                )
+        (
+            supabase
+            .table("jobs")
+            .update(
+                {
+                    "status": status,
+                }
             )
+            .eq("id", job_id)
+            .execute()
+        )
+
+    @staticmethod
+    def delete_job(
+        job_id: int,
+    ):
+
+        (
+            supabase
+            .table("jobs")
+            .delete()
+            .eq("id", job_id)
+            .execute()
+        )
