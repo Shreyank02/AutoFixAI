@@ -7,7 +7,13 @@ from core.config import settings
 
 
 def load_private_key() -> str:
-    return settings.GITHUB_PRIVATE_KEY
+    key_path = Path(settings.GITHUB_PRIVATE_KEY)
+    if not key_path.exists():
+        raise FileNotFoundError(
+            f"Private key not found: {key_path}"
+        )
+
+    return key_path.read_text()
 
 
 def generate_app_jwt():
