@@ -1,6 +1,8 @@
 from pathlib import Path
+
 from app_rag.scanner import RepositoryScanner
 from app_rag.retriever import RepositoryRetriever
+
 
 class SupervisorAgent:
 
@@ -10,21 +12,24 @@ class SupervisorAgent:
 
     def run(self, state):
 
-        repo_path = Path(
-            "workspace/repositories"
-        ) / state["repository"]
+        repo_path = (
+            Path("workspace/repositories")
+            / state["repository"]
+        )
 
-        scanner = RepositoryScanner(repo_path)
+        scanner = RepositoryScanner(
+            repo_path
+        )
 
         repository_context = scanner.scan()
 
         issue = f"""
-                    Title:
-                    {state['issue_title']}
+Title:
+{state["issue_title"]}
 
-                    Description:
-                    {state['issue_body']}
-                    """
+Description:
+{state["issue_body"]}
+"""
 
         results = self.retriever.retrieve(
             repository=state["repository"],
@@ -37,31 +42,41 @@ class SupervisorAgent:
         for result in results:
 
             payload = result.payload
+
             context += f"""
-                        File:
-                        {payload['file_path']}
-                        Symbol:
-                        {payload['symbol']}
-                        Code:
-                        {payload['code']}
-                        =============================
-                        """
+File:
+{payload.get("file_path", "")}
+
+Symbol:
+{payload.get("symbol", "")}
+
+Code:
+{payload.get("code", payload.get("content", ""))}
+
+=============================
+"""
 
         summary = f"""
-                Repository
-                Name:
-                {repository_context.name}
-                Language:
-                {repository_context.language}
-                Framework:
-                {repository_context.framework}
-                Project Type:
-                {repository_context.project_type}
-                Files:
-                {len(repository_context.files)}
-                Dependencies:
-                {", ".join(repository_context.dependencies)}
-                """
+Repository
+Name:
+{repository_context.name}
+
+Language:
+{repository_context.language}
+
+Framework:
+{repository_context.framework}
+
+Project Type:
+{repository_context.project_type}
+
+Files:
+{len(repository_context.files)}
+
+Dependencies:
+{", ".join(repository_context.libraries or [])}
+"""
+
         state["repository_summary"] = summary
         state["retrieved_context"] = context
 
