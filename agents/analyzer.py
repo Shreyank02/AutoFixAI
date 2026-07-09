@@ -30,9 +30,15 @@ Relevant Repository Context:
 {state["retrieved_context"]}
 """
 
-        response = self.llm.invoke(
-            self.prompt + "\n\n" + user_prompt
-        )
+        full_prompt = self.prompt + "\n\n" + user_prompt
+
+        print("=" * 80)
+        print("PROMPT LENGTH:", len(full_prompt))
+        print("=" * 80)
+        print(full_prompt)
+        print("=" * 80)
+
+        response = self.llm.invoke(full_prompt)
 
         print("=" * 80)
         print("RAW ANALYZER RESPONSE")

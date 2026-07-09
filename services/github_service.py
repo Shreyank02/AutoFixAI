@@ -120,6 +120,12 @@ class GitHubService:
             {", ".join(context.libraries)}
             """
 
+        print("=" * 80)
+        print("RETRIEVED CONTEXT")
+        print("=" * 80)
+        print(retrieved_context)
+        print("=" * 80)
+        
         state = {
             "issue_title": issue_data["title"],
             "issue_body": issue_data["body"],
