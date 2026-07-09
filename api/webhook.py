@@ -6,8 +6,9 @@ import threading
 from core.security import verify_signature
 from services.github_service import GitHubService
 from services.installation_service import InstallationService
-router = APIRouter()
+from services.job_service import JobService
 
+router = APIRouter()
 
 @router.post("/github")
 async def github_webhook(request: Request):
@@ -56,11 +57,7 @@ async def github_webhook(request: Request):
             print("CALLING GitHubService.process_issue()")
             print(issue)
 
-            threading.Thread(
-                target=GitHubService.process_issue,
-                args=(issue,),
-                daemon=True,
-            ).start()
+            JobService.add_job(issue)
 
     elif event == "installation":
 
