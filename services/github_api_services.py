@@ -1,10 +1,6 @@
 import requests
-
 from services.auth_service import get_installation_token
-
-
 class GitHubAPIService:
-
     @staticmethod
     def create_pull_request(
         owner: str,
@@ -15,16 +11,13 @@ class GitHubAPIService:
         head: str,
         base: str = "main",
     ):
-
         token = get_installation_token(
             installation_id
         )
-
         headers = {
-            "Authorization": f"token {token}",
+            "Authorization": f"Bearer {token}",
             "Accept": "application/vnd.github+json",
         }
-
         response = requests.post(
             f"https://api.github.com/repos/{owner}/{repository}/pulls",
             headers=headers,
@@ -35,10 +28,8 @@ class GitHubAPIService:
                 "base": base,
             },
         )
-
         if response.status_code != 201:
             print(response.status_code)
             print(response.json())
             raise Exception("Failed to create PR")
-
         return response.json()

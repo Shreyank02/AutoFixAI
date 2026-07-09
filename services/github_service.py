@@ -1,14 +1,21 @@
-from pathlib import Path
-
 from utils.logger import logger
-
+from pathlib import Path
+from app_rag.indexer import RepositoryIndexer
 from services.repository_service import RepositoryService
+from services.auth_service import get_installation_token
+from services.git_service import GitService
+from services.patch_service import PatchService
+from services.github_api_services import GitHubAPIService
+
+from utils.pr_generator import (
+    create_pr_title,
+    create_pr_body,
+)
 
 from app_rag.scanner import RepositoryScanner
-from app_rag.indexer import RepositoryIndexer
 from app_rag.retriever import RepositoryRetriever
+
 from agents.workflow import workflow
-from services.auth_service import get_installation_token
 
 
 class GitHubService:
@@ -163,7 +170,86 @@ class GitHubService:
         logger.info("-" * 70)
 
         print(developer)
+        
+        logger.info("=" * 70)
+        logger.info("APPLYING PATCH")
+        logger.info("=" * 70)
+
+        GitService.checkout_default_branch(
+            repository_path
+        )
+
+        branch_name = (
+            f"autofix/issue-{issue_data['number']}"
+        )
+
+        GitService.create_branch(
+            repository_path,
+            branch_name,
+        )
+
+        patch_result = PatchService.apply_patches(
+            repository_path,
+            developer,
+        )
+
+        if not patch_result.success:
+
+            raise Exception(
+                "\n".join(
+                    patch_result.errors
+                )
+            )
+
+        logger.info(
+            f"Patched Files : {patch_result.modified_files}"
+        )
+
+        commit_sha = GitService.commit_changes(
+            repository_path,
+            f"Fix issue #{issue_data['number']} : {issue_data['title']}"
+        )
+
+        if commit_sha is None:
+
+            raise Exception(
+                "Nothing was committed."
+            )
+
+        logger.info(
+            f"Commit Created : {commit_sha}"
+        )
+
+        GitService.push_branch(
+            repository_path=repository_path,
+            owner=owner,
+            repository=repo_name,
+            installation_id=installation_id,
+            branch_name=branch_name,
+        )
+
+        logger.info("Branch pushed successfully.")
+
+        pr = GitHubAPIService.create_pull_request(
+            owner=owner,
+            repository=repo_name,
+            installation_id=installation_id,
+            title=create_pr_title(analysis),
+            body=create_pr_body(analysis),
+            head=branch_name,
+        )
 
         logger.info("=" * 70)
-        logger.info("SESSION 2 COMPLETE")
+        logger.info("PULL REQUEST CREATED")
+        logger.info(pr["html_url"])
         logger.info("=" * 70)
+
+        logger.info("=" * 70)
+        logger.info("AUTOFIX AI COMPLETED")
+        logger.info("=" * 70)
+
+        return {
+            "branch": branch_name,
+            "commit": commit_sha,
+            "pull_request": pr["html_url"],
+        }
