@@ -16,6 +16,11 @@ If the provided code is insufficient to determine the exact cause,
 explicitly say that more investigation is required.
 
 Return ONLY JSON.
+Do NOT wrap the JSON in markdown.
+Do NOT write any explanation.
+Do NOT write any notes.
+Do NOT write any text before or after the JSON.
+Your entire response must be a single valid JSON object matching the schema exactly.
 
 Schema
 
