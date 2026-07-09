@@ -1,35 +1,25 @@
-from agents.supervisor import SupervisorAgent
-from agents.analyzer import AnalyzerAgent
 from agents.llm import LLMService
-
-
-state = {
-
-    "issue_title":
-        "Database lookup fails",
-
-    "issue_body":
-        "Vehicle is detected but database lookup fails.",
-
-    "repository":
-        "licence-plate-detection-and-iot-integration",
-
-    "retrieved_context": "",
-
-    "implementation_plan": "",
-
-    "generated_code": "",
-
-}
-
-supervisor = SupervisorAgent()
-
-state = supervisor.run(state)
+from pathlib import Path
 
 llm = LLMService()
 
-analyzer = AnalyzerAgent(llm)
+prompt = Path("prompts/analyzer.txt").read_text()
 
-state = analyzer.run(state)
+user_prompt = """
+Repository Summary:
+Repository Name: autofix_testing_repo
 
-print(state["implementation_plan"])
+Issue:
+subtract() function is not working
+
+Relevant Code:
+
+def subtract(a, b):
+    return a + b
+"""
+
+response = llm.invoke(prompt + "\n\n" + user_prompt)
+
+print(response)
+print("=" * 80)
+print(repr(response.content))

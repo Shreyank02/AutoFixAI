@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from fastapi import Request
 from fastapi import HTTPException
+import threading
 
 from core.security import verify_signature
 from services.github_service import GitHubService
@@ -54,7 +55,12 @@ async def github_webhook(request: Request):
             }
             print("CALLING GitHubService.process_issue()")
             print(issue)
-            GitHubService.process_issue(issue)
+
+            threading.Thread(
+                target=GitHubService.process_issue,
+                args=(issue,),
+                daemon=True,
+            ).start()
 
     elif event == "installation":
 
