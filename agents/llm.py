@@ -8,12 +8,12 @@ class LLMService:
             api_key=settings.OPENROUTER_API_KEY,
             base_url="https://openrouter.ai/api/v1",
             temperature=0,
+            timeout=120,
             model_kwargs={
                 "response_format": {
                     "type": "json_object"
                 }
             }
-            timeout=120,
         )
     def invoke(self, prompt):
         return self.model.invoke(prompt)
