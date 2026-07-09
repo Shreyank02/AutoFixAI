@@ -672,3 +672,69 @@
 2026-07-09 15:03:12,232 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
 2026-07-09 15:03:14,306 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
 2026-07-09 15:03:16,409 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:36:03,951 | INFO | HTTP Request: GET https://a2a628a4-fa75-4011-ae19-ac53f65b951f.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-07-09 16:36:03,963 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:36:04,066 | INFO | HTTP Request: PATCH https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?id=eq.5 "HTTP/2 200 OK"
+2026-07-09 16:36:04,067 | INFO | ======================================================================
+2026-07-09 16:36:04,068 | INFO | AUTOFIX AI STARTED
+2026-07-09 16:36:04,068 | INFO | ======================================================================
+2026-07-09 16:36:04,068 | INFO | Issue : subtract() unction is not working
+2026-07-09 16:36:04,068 | INFO | Repository : Shreyank02/autofix_testing_repo
+2026-07-09 16:36:04,068 | INFO | Repository not found locally. Cloning...
+2026-07-09 16:36:04,733 | INFO | Repository cloned successfully.
+2026-07-09 16:36:04,734 | INFO | [1/4] Repository Located : workspace\repositories\autofix_testing_repo
+2026-07-09 16:36:04,739 | INFO | [2/4] Repository Scan Completed
+2026-07-09 16:36:04,739 | INFO | [3/4] Repository Indexed
+2026-07-09 16:36:05,719 | INFO | HTTP Request: POST https://a2a628a4-fa75-4011-ae19-ac53f65b951f.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/repository_code/points/query "HTTP/1.1 200 OK"
+2026-07-09 16:36:05,727 | INFO | [4/4] Retrieved 8 Code Chunks
+2026-07-09 16:36:05,728 | INFO | ======================================================================
+2026-07-09 16:36:05,728 | INFO | [5/6] Running LangGraph Workflow
+2026-07-09 16:36:05,728 | INFO | ======================================================================
+2026-07-09 16:36:05,943 | INFO | HTTP Request: GET https://a2a628a4-fa75-4011-ae19-ac53f65b951f.eu-west-2-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-07-09 16:36:06,316 | INFO | HTTP Request: POST https://a2a628a4-fa75-4011-ae19-ac53f65b951f.eu-west-2-0.aws.cloud.qdrant.io:6333/collections/repository_code/points/query "HTTP/1.1 200 OK"
+2026-07-09 16:36:07,076 | INFO | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 16:36:19,696 | INFO | HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 16:46:20,602 | INFO | HTTP Request: PATCH https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?id=eq.5 "HTTP/2 200 OK"
+2026-07-09 16:46:22,694 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:24,768 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:26,846 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:28,947 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:31,039 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:33,143 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:35,227 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:37,313 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:39,413 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:41,494 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:43,583 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:45,673 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:47,755 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:49,847 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:51,977 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:54,059 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:56,132 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:46:58,235 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:00,306 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:02,381 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:04,464 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:06,548 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:08,622 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:10,711 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:12,804 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:14,874 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:16,956 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:19,046 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:21,122 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:23,191 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:25,287 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:27,361 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:29,484 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:31,580 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:33,672 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:35,752 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:37,865 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:39,927 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:42,008 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:44,118 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:46,186 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:48,256 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"
+2026-07-09 16:47:50,352 | INFO | HTTP Request: GET https://hsoqpekheoymjspsqybs.supabase.co/rest/v1/jobs?select=%2A&status=eq.queued&order=id.asc "HTTP/2 200 OK"

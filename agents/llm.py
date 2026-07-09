@@ -13,6 +13,7 @@ class LLMService:
                     "type": "json_object"
                 }
             }
+            timeout=120,
         )
     def invoke(self, prompt):
         return self.model.invoke(prompt)

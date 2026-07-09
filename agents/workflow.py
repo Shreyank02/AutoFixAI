@@ -19,16 +19,31 @@ builder = StateGraph(WorkflowState)
 
 
 def supervisor_node(state):
-    return supervisor.run(state)
+    print("===== SUPERVISOR =====")
+    result = supervisor.run(state)
+    print("SUPERVISOR DONE")
+    return result
+
 
 def analyzer_node(state):
-    return analyzer.run(state)
+    print("===== ANALYZER =====")
+    result = analyzer.run(state)
+    print("ANALYZER DONE")
+    return result
+
 
 def developer_node(state):
-    return developer.run(state)
+    print("===== DEVELOPER =====")
+    result = developer.run(state)
+    print("DEVELOPER DONE")
+    return result
+
 
 def reviewer_node(state):
-    return reviewer.run(state)
+    print("===== REVIEWER =====")
+    result = reviewer.run(state)
+    print("REVIEWER DONE")
+    return result
 
 
 builder.add_node(
