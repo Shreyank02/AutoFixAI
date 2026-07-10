@@ -1,4 +1,4 @@
-# 🚀 AutoFix AI — Autonomous GitHub Issue Resolver
+# AutoFix AI — Autonomous GitHub Issue Resolver
 
 > An AI-powered software engineer that automatically analyzes GitHub issues, understands the repository, generates a code fix, commits the changes to a new branch, and creates a Pull Request for human review.
 
@@ -12,7 +12,7 @@
 
 ---
 
-# 📖 Overview
+# Overview
 
 AutoFix AI is an autonomous AI Software Engineer built as a GitHub App.
 
@@ -33,7 +33,7 @@ The developer only needs to review and merge the PR.
 
 ---
 
-# ✨ Features
+# Features
 
 - GitHub App Integration
 - Automatic Issue Detection
@@ -52,7 +52,7 @@ The developer only needs to review and merge the PR.
 
 ---
 
-# 🏗️ Architecture
+# Architecture
 
 ```
 GitHub Issue
@@ -99,7 +99,7 @@ Create Pull Request
 
 ---
 
-# 🤖 AI Workflow
+# AI Workflow
 
 ## 1. Repository Scanner
 
@@ -167,7 +167,7 @@ Automatically creates a Pull Request using GitHub REST API.
 
 ---
 
-# 🛠 Tech Stack
+# Tech Stack
 
 ### Backend
 
@@ -204,7 +204,7 @@ Automatically creates a Pull Request using GitHub REST API.
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ```
 AutoFixAI/
@@ -253,7 +253,7 @@ AutoFixAI/
 
 ---
 
-# ⚙️ Installation
+# Installation
 
 ## 1. Clone Repository
 
@@ -370,7 +370,7 @@ python worker.py
 
 ---
 
-# 🔄 Workflow
+# Workflow
 
 ```
 User opens GitHub Issue
@@ -420,7 +420,7 @@ Developer Reviews PR
 
 ---
 
-# 🧠 AI Agents
+# AI Agents
 
 | Agent | Responsibility |
 |---------|----------------|
@@ -430,7 +430,7 @@ Developer Reviews PR
 
 ---
 
-# 📌 Current Capabilities
+# Current Capabilities
 
 ✅ GitHub App Integration
 
@@ -454,7 +454,7 @@ Developer Reviews PR
 
 ---
 
-# 🚀 Future Improvements
+# Future Improvements
 
 - Automatic Test Execution
 - AI Code Reviewer
@@ -470,7 +470,7 @@ Developer Reviews PR
 
 ---
 
-# 🤝 Contributing
+# Contributing
 
 Contributions are welcome!
 
@@ -498,13 +498,13 @@ git push origin feature/new-feature
 
 ---
 
-# 📜 License
+# License
 
 This project is licensed under the MIT License.
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 **Shreyank Choudhary**
 
